@@ -16,46 +16,34 @@
         <div class="countdown">
             Updating...
         </div>
-        <div class="related">
-
+        <div>
+            <p> Made by <a href="https://github.com/Esteban795/dayssinceeldenringdlcwasannounced"> Esteban795 (desperate fan) </a> </p>
         </div>
-
         <div class="space">
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
-          </div>
-          
-        <footer>
-            (I'm in desperate need.)
-        </footer>
+        </div>
 
     <script>
         const NB_SECONDS_IN_DAYS = 1000 * 60 * 60 * 24;
         const NB_SECONDS_IN_HOURS = 1000 * 60 * 60;
         const NB_SECONDS_IN_MINUTES = 1000 * 60;
         div = document.getElementsByClassName("countdown")[0];
-        window.onload =  function(){
-        var dlcDate = new Date("Feb 28, 2023 9:00:00").getTime();
-        var x = setInterval(function() {
-        var now = new Date().getTime();
-        var timeToDate = now - dlcDate;
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(timeToDate / (NB_SECONDS_IN_DAYS));
-        var hours = Math.floor((timeToDate % (NB_SECONDS_IN_DAYS)) / (NB_SECONDS_IN_HOURS));
-        var minutes = Math.floor((timeToDate % (NB_SECONDS_IN_HOURS)) / (NB_SECONDS_IN_MINUTES));
-        var seconds = Math.floor((timeToDate % (NB_SECONDS_IN_MINUTES)) / 1000);
-        div.innerHTML = days + "<small> DAYS </small> " + hours + "<small> HOURS </small> " + minutes + "<small> MINUTES </small> " + seconds + "<small> SECONDS </small> ";
-        // If the countdown is finished, display a message 
-        if (timeToDate < 0) {
-            clearInterval(x);
-            div.innerHTML = "Countdown finished";
-        }
-    }, 1000);
 
-};
+        window.onload =  function(){
+            var dlcDate = new Date("Feb 28, 2023 9:00:00").getTime();
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var timeToDate = now - dlcDate;
+                var days = Math.floor(timeToDate / (NB_SECONDS_IN_DAYS));
+                var hours = Math.floor((timeToDate % (NB_SECONDS_IN_DAYS)) / (NB_SECONDS_IN_HOURS));
+                var minutes = Math.floor((timeToDate % (NB_SECONDS_IN_HOURS)) / (NB_SECONDS_IN_MINUTES));
+                var seconds = Math.floor((timeToDate % (NB_SECONDS_IN_MINUTES)) / 1000);
+                div.innerHTML = days + "<small> DAYS </small> " + hours + "<small> HOURS </small> " + minutes + "<small> MINUTES </small> " + seconds + "<small> SECONDS </small> ";
+            }, 1000);
+        };
 </script>
-    </script>
 </body>
 </html>
