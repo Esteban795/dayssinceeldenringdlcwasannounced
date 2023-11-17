@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <title> Number of days since Elden Ring DLC was announced. </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1> DAYS SINCE </h1>
+            <img src="images/eldenring_new.webp" alt="elden ring logo">
+            <h1> DLC ANNOUNCEMENT </h1>
+        </div>
+        <div class="countdown">
+            Updating...
+        </div>
+        <div class="related">
+
+        </div>
+
+        <div class="space">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+          
+        <footer>
+            (I'm in desperate need.)
+        </footer>
+
+    <script>
+        const NB_SECONDS_IN_DAYS = 1000 * 60 * 60 * 24;
+        const NB_SECONDS_IN_HOURS = 1000 * 60 * 60;
+        const NB_SECONDS_IN_MINUTES = 1000 * 60;
+        div = document.getElementsByClassName("countdown")[0];
+        window.onload =  function(){
+        var dlcDate = new Date("Feb 28, 2023 9:00:00").getTime();
+        var x = setInterval(function() {
+        var now = new Date().getTime();
+        var timeToDate = now - dlcDate;
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(timeToDate / (NB_SECONDS_IN_DAYS));
+        var hours = Math.floor((timeToDate % (NB_SECONDS_IN_DAYS)) / (NB_SECONDS_IN_HOURS));
+        var minutes = Math.floor((timeToDate % (NB_SECONDS_IN_HOURS)) / (NB_SECONDS_IN_MINUTES));
+        var seconds = Math.floor((timeToDate % (NB_SECONDS_IN_MINUTES)) / 1000);
+        div.innerHTML = days + "<small> DAYS </small> " + hours + "<small> HOURS </small> " + minutes + "<small> MINUTES </small> " + seconds + "<small> SECONDS </small> ";
+        // If the countdown is finished, display a message 
+        if (timeToDate < 0) {
+            clearInterval(x);
+            div.innerHTML = "Countdown finished";
+        }
+    }, 1000);
+
+};
+</script>
+    </script>
+</body>
+</html>
